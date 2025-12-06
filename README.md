@@ -6,9 +6,9 @@ A WordPress plugin that replaces text currency codes with authentic currency sym
 
 | Currency | Code | Symbol |
 |----------|------|--------|
-| Omani Rial | OMR | ر.ع. |
-| Saudi Riyal | SAR | ﷼ |
-| UAE Dirham | AED | د.إ |
+| Omani Rial | OMR | ![OMR](omr-symbol.png) |
+| Saudi Riyal | SAR | ![SAR](sar-symbol.png) |
+| UAE Dirham | AED | ![AED](aed-symbol.png) |
 
 ## Features
 
