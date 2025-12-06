@@ -54,10 +54,10 @@ A WordPress plugin that replaces text currency codes with authentic currency sym
 - Initial public release
 - Omani Rial (OMR) support
 
+## Contribution
+
+This plugin is contributed by [Sampo Pricing](https://www.getsampo.com) — an AI-powered pricing optimization platform for e-commerce companies in the MENA region. Sampo helps businesses boost revenue and profits by optimizing prices in real-time based on demand, supply, and market conditions.
+
 ## License
 
 GPL v2 or later
-
-## Author
-
-Starter Starter
