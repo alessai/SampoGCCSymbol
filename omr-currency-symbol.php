@@ -3,7 +3,7 @@
  * Plugin Name: GCC Currency Symbols
  * Plugin URI: https://www.getsampo.com
  * Description: Replaces WooCommerce currency symbols for Omani Rial (OMR), Saudi Riyal (SAR), and UAE Dirham (AED) with their official new symbols.
- * Version: 1.3.1
+ * Version: 1.3.2
  * Author: Sampo
  * Author URI: https://www.getsampo.com
  * License: GPL v2 or later
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('GCC_CURRENCY_SYMBOLS_VERSION', '1.3.1');
+define('GCC_CURRENCY_SYMBOLS_VERSION', '1.3.2');
 
 /**
  * Main plugin class
@@ -167,20 +167,11 @@ class GCC_Currency_Symbols {
      * Replace the currency symbols
      */
     public function custom_currency_symbol($currency_symbol, $currency) {
-        // Skip SVG replacement in admin pages where HTML is escaped (React-based pages)
+        // Skip SVG replacement in all admin pages - use default text symbols
+        // Admin has too many contexts (React, JS templates, custom plugins) that escape HTML
+        // SVG symbols are only used on the frontend and in emails
         if (is_admin() && !wp_doing_ajax()) {
-            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only check for page context
-            $page = isset($_GET['page']) ? sanitize_text_field(wp_unslash($_GET['page'])) : '';
-
-            // WooCommerce settings page (dropdowns don't render HTML)
-            if ($page === 'wc-settings') {
-                return $currency_symbol;
-            }
-
-            // WooCommerce Admin/Analytics pages (React escapes HTML)
-            if ($page === 'wc-admin' || strpos($page, 'wc-admin') === 0) {
-                return $currency_symbol;
-            }
+            return $currency_symbol;
         }
 
         // OMR - Omani Rial
